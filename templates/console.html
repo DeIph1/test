@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block context %}
+    <div>
+    <form class="form-control" method="post">
+        Brand:<input type="text" name="brand" autocomplete="off" required>
+        Name:<input type="text" name="name" autocomplete="off" required>
+        Price:<input type="text" name="price" autocomplete="off" required>
+        Year:<input type="text" name="year" autocomplete="off" required>
+        <input class="btn" type="submit" name="submit" value="Add">
+    </form>
+    </div>
+{% endblock %}

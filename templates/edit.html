@@ -1,0 +1,11 @@
+{% extends'base.html' %}
+{% block content %}
+<h3>Edit item</h3>
+<form method="post">
+    品牌 <input type="text" name="brand" autocomplete="off" required value="{{ c_info.brand }}">
+    车系 <input type="text" name="name" autocomplete="off" required value="{{ c_info.name }}">
+    租价 <input type="text" name="price" autocomplete="off" required value="{{ c_info.price }}">
+    年份 <input type="text" name="year" autocomplete="off" required value="{{ c_info.year }}">
+    <button class="btn" type="submit" name="submit" value="Update">Update</button>
+</form>
+{% endblock %}

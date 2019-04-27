@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block context %}
+    <div class="container">
+
+      <form class="form-signin" method="post">
+        <h2 class="form-signin-heading" align="center">新用户注册</h2><br>
+        <h4>这里输入账号:</h4><label for="inputAccount" class="sr-only">这里输入账号</label>
+        <input type="text" id="inputAccount" name="acc-signup" class="form-control" placeholder="Account" required autofocus>
+        <h4>这里输入密码:</h4><label for="inputPassword" class="sr-only">这里输入密码</label>
+        <input type="password" id="inputPassword" name="psw-signup" class="form-control" placeholder="Password" required>
+        <h4>确认输入密码:</h4><label for="inputPassword" class="sr-only">确认输入密码</label>
+        <input type="password" id="confirmPassword" class="form-control" placeholder="ConfirmPasssword" required>
+        <h4>这里输入姓名:</h4><label for="inputName" name="name-signup" class="sr-only">这里输入姓名</label>
+        <input type="text" id="inputName"class="form-control" placeholder="InputName" required>
+        <h4>这里输入身份证号:</h4><label for="inputId" class="sr-only">请在此输入身份证</label>
+        <input type="text" id="inputId" name="ide-signup" class="form-control" placeholder="Identity" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="I agree" required> 我已经仔细阅读并同意
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+      </form>
+
+    </div> <!-- /container -->
+{% endblock %}

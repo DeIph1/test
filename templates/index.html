@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block context %}
+    <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+        <h1 align="center" style="font-family: SansSerif">上架车辆信息</h1><br><br>
+    {% if current_user.is_authenticated %}
+        <form method="post">
+        Brand:<input type="text" name="brand" autocomplete="off" required>
+        Name:<input type="text" name="name" autocomplete="off" required>
+        Price:<input type="text" name="price" autocomplete="off" required>
+        Year:<input type="text" name="year" autocomplete="off" required>
+        <input class="btn" type="submit" name="submit" value="Add">
+    </form>
+    {% endif %}
+        {# 此处使用for m in car_info #}
+        {% for car in car_info %}
+        <div class="row">
+            <div class="col-md-4"><img src="{{ url_for('static',filename='images/Toyota-86.jpg') }}" class="car_image" align="center"></div>
+            <div class="col-md-5"><li>品牌：{{ car.brand }}-车系：{{ car.name }}-租价：{{ car.price }}/日 -年份：{{ car.year }}</li></div>{# {{ m.Carinfo.query.all() }} #}
+            <div class="col-md-3">
+                <form class="inline-form" method="post" action="{{ url_for('user_order', car_id=car.id) }}">
+                    <input class="btn" type="submit" name="rental" value="Rent it!"><br>
+                </form>
+                {% if current_user.is_authenticated %}
+                <input class="btn" type="submit" name="edit" href="{{ url_for('edit', car_id=car.id) }}" value="编辑车辆信息"><br>
+                <form class="inline-form" method="post" action="{{ url_for('edit', car_id=car.id) }}">
+                    <input class="btn" type="submit" name="edit" value="Edit">
+                </form>
+                <form class="inline-form" method="post" action="{{ url_for('delete', car_id=car.id) }}">
+                    <input class="btn" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure?')">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+        {# 此处使用endfor #}
+    </div> <!-- /container -->
+{% endblock %}
